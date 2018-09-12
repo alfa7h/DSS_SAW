@@ -1,52 +1,44 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
-    "type": "project",
+    "name": "dompdf/dompdf",
+    "type": "library",
+    "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
+    "homepage": "https://github.com/dompdf/dompdf",
+    "license": "LGPL-2.1",
+    "authors": [
+        {
+            "name": "Fabien Ménager",
+            "email": "fabien.menager@gmail.com"
+        },
+        {
+            "name": "Brian Sweeney",
+            "email": "eclecticgeek@gmail.com"
+        },
+        {
+            "name": "Gabriel Bull",
+            "email": "me@gabrielbull.com"
+        }
+    ],
+    "autoload": {
+        "psr-4" : {
+            "Dompdf\\" : "src/"
+        },
+        "classmap" : ["lib/"]
+    },
     "require": {
-        "php": ">=5.6.4",
-        "barryvdh/laravel-dompdf": "^0.8.0",
-        "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0",
-        "maatwebsite/excel": "^2.1"
+        "php": ">=5.3.0",
+        "ext-gd": "*",
+        "ext-dom": "*",
+        "ext-mbstring": "*",
+        "phenx/php-font-lib": "0.5.*",
+        "phenx/php-svg-lib": "0.2.*"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "phpunit/phpunit": "4.8.*",
+        "squizlabs/php_codesniffer": "2.*"
     },
-    "autoload": {
-        "classmap": [
-            "database"
-        ],
-        "psr-4": {
-            "App\\": "app/"
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.7-dev"
         }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "scripts": {
-        "post-root-package-install": [
-            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "php artisan key:generate"
-        ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
-        ]
-    },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
     }
 }
